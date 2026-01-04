@@ -163,5 +163,5 @@ USER 51773
 WORKDIR /home/$ISC_PACKAGE_MGRUSER
 
 EXPOSE 2188/tcp 1972/tcp
-HEALTHCHECK --interval=1m --timeout=10s --start-period=1m --retries=3   CMD ["/irisHealth.sh"] || exit 1
+HEALTHCHECK --interval=1m --timeout=10s --start-period=1m --retries=3   CMD /irisHealth.sh || exit 1
 ENTRYPOINT ["/tini", "--", "/iris-main"]
