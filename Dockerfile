@@ -64,10 +64,10 @@ USER root
 RUN <<EOT
   find ${ISC_PACKAGE_INSTALLDIR} -iname '*odbc*' -exec rm -rf {} \;
   find ${ISC_PACKAGE_INSTALLDIR} -iname '*xalan*' -exec rm -rf {} \;
-  rm -rf ${ISC_PACKAGE_INSTALLDIR}/dev
+  find ${ISC_PACKAGE_INSTALLDIR}/dev/ -maxdepth 1 -mindepth 1 -type d ! -name Cloud ! -name Container ! -name CAcerts -exec rm -rf {} \;
+  rm -rf ${ISC_PACKAGE_INSTALLDIR}/dev/Container/demo
   rm -rf ${ISC_PACKAGE_INSTALLDIR}/devuser
   rm -rf ${ISC_PACKAGE_INSTALLDIR}/csp
-  rm -rf ${ISC_PACKAGE_INSTALLDIR}/dist
   rm -rf ${ISC_PACKAGE_INSTALLDIR}/docs
   rm -rf ${ISC_PACKAGE_INSTALLDIR}/fop
   rm -rf ${ISC_PACKAGE_INSTALLDIR}/httpd
